@@ -4,34 +4,36 @@ import java.util.Scanner;
 public class GameWorld {
 
     // Creating ArrayLists
-    private ArrayList<Item> allItems;
-    private ArrayList<Character> allCharacters;
+    public ArrayList<Item> allItems;
+    public ArrayList<Character> allCharacters;
+
+    public GameWorld() {
+        allItems = new ArrayList<>();
+        allCharacters = new ArrayList<>();
+    }
 
     // Create item
-    public Item createItem() {
-        Scanner scanner = new Scanner(System.in);
+    public void createItem(Scanner scanner) {
 
         System.out.println("-----Item creation menu-----");
         System.out.print("Item name: ");
         String nameInput = scanner.nextLine();
         System.out.print("Item type: ");
         String typeInput = scanner.nextLine();
-        System.out.println("Item rarity: ");
+        System.out.print("Item rarity: ");
         String rarityInput = scanner.nextLine();
         System.out.print("Item value: ");
         double valueInput = scanner.nextDouble();
         scanner.nextLine(); // Clear scanner after double / int
         System.out.print("Item weight: ");
         double weightInput = scanner.nextDouble();
-        scanner.close();
 
         // Create item based on gathered information
         Item newItem = new Item(nameInput, typeInput, rarityInput, valueInput, weightInput);
         allItems.add(newItem);
-        return newItem;
     }
     // Create Character
-    public Character createCharacter() {
+    public void createCharacter() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("-----Character creation menu-----");
@@ -47,7 +49,6 @@ public class GameWorld {
         // Create item based on gathered information
         Character newCharacter = new Character(nameInput, levelInput, weightCarryingCapacityInput);
         allCharacters.add(newCharacter);
-        return newCharacter;
     }
 
     // Search item methods
@@ -96,30 +97,36 @@ public class GameWorld {
 
     // Trade items between characters
     public void tradeItems(Character givingCharacter, Character recievingCharacter, Item itemToTrade) {
+        boolean itemFound = false;
         // Check if the giving character has the item to trade
         for (Item item: givingCharacter.itemArrayList) {
             if (item.equals(itemToTrade)) {
-                recievingCharacter.addItem(itemToTrade); // Add the item to inventoru
+                itemFound = true;
+                recievingCharacter.addItem(itemToTrade); // Add the item to inventory
                 givingCharacter.removeItem(itemToTrade); // Remove the item from inventory
                 System.out.println(givingCharacter.getName() + " gave the " + itemToTrade.getName() + " to " + recievingCharacter.getName());
             }
         }
+        if (!itemFound) {
+            System.out.println("Item could not be found inside giving character's inventorY!");
+        }
+
     }
 
     // Display all items
     public void displayAllItems() {
-        int itemCounter = 1;
+        System.out.println("\n-----Item information-----");
         for (Item item: allItems) {
-            System.out.println(itemCounter + ". item information");
+            System.out.println("");
             item.displayInformation();
         }
     }
 
     // Display all characters
-    public void displayAllCharacter() {
-        int characterCounter = 1;
+    public void displayAllCharacters() {
+        System.out.println("\n-----Character information-----");
         for (Character character: allCharacters) {
-            System.out.println(characterCounter + ". character information");
+            System.out.println("");
             character.displayInformation();
         }
     }

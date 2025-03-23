@@ -13,7 +13,7 @@ public class Item {
         this.type = type;
         this.rarity = rarity;
         this.value = value;
-        this.weight = value;
+        this.weight = weight;
     }
 
     // Getters

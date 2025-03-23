@@ -62,7 +62,7 @@ public class Character {
 
     // Display information
     public void displayInformation() {
-        System.out.println("-----Charcter information-----");
+        System.out.println("\n-----Character information-----");
         System.out.println("Name: " + getName());
         System.out.println("Level: " + getLevel());
         System.out.println("Max Carrying Capacity: " + getMaximumCarryingCapacity());
@@ -70,6 +70,7 @@ public class Character {
         for (Item item : itemArrayList) {
             item.displayInformation();
         }
+        System.out.println("----------");
     }
 
     // Method to equip item
