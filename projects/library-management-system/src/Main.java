@@ -10,7 +10,9 @@ public class Main {
         DVD dvd1 = new DVD("Lord of the Rings", 2,true,"Peter Jackson", 178);
         Magazine magazine1 = new Magazine("National Geographic", 42, false, "2023-09-15", "National Geographic Society");
 
-
+        library.addItem(book1);
+        library.addItem(dvd1);
+        library.addItem(magazine1);
 
     boolean menuIsOn = true;
         while (menuIsOn) {
@@ -54,13 +56,13 @@ public class Main {
         String itemCategory = scanner.nextLine();
 
         if (itemCategory.equalsIgnoreCase("Book")) {
-            Book book = null;
+            Book book = new Book("",0,false,"",0);
             book.createItem(scanner, library);
         } else if (itemCategory.equalsIgnoreCase("DVD")) {
-            DVD dvd = null;
+            DVD dvd = new DVD("",0,false,"",0);
             dvd.createItem(scanner, library);
         } else {
-            Magazine magazine = null;
+            Magazine magazine = new Magazine("",0,false,"","");
             magazine.createItem(scanner, library);
         }
     }
