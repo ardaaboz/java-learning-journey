@@ -9,7 +9,7 @@ public abstract class Shape {
     public void displayInfo(Scanner scanner) {
         System.out.println();
         System.out.println("Shape information");
-        System.out.println("Area: " + calculateArea(scanner));
+        System.out.println("Area: "  + calculateArea(scanner));
         System.out.println("Perimeter: " + calculatePerimeter(scanner));
     }
 }
