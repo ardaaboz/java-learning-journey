@@ -2,7 +2,6 @@ import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.*;
 
 public class MusicLibraryManager {
-    static Map<String, Album> albumMap = new HashMap<>();
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -21,8 +20,11 @@ public class MusicLibraryManager {
         rapAlbum.songSet.add(medcezir);
         rapAlbum.songSet.add(cevapsizSorular);
 
+        Map<String, Album> albumMap = new HashMap<>();
+
         albumMap.put(rockAlbum.getTitle(),rockAlbum);
         albumMap.put(rapAlbum.getTitle(),rapAlbum);
+
 
             boolean menuIsOn = true;
             while (menuIsOn) {
@@ -47,35 +49,73 @@ public class MusicLibraryManager {
                         int year = scanner.nextInt();
                         scanner.nextLine();
 
-                        createAlbum(title,year);
+                        createAlbum(title,year, albumMap);
                         break;
                     case 2:
-                        System.out.println("Adding song to album")
-                        System.out.println("Name of the song to add: "); // Will continue
+                        System.out.println();
+                        System.out.println("Adding song to album");
+                        System.out.println("Title of the song to add: "); // Will continue
+                        String songTitle = scanner.nextLine();
+                        Song songToAdd = null;
+                        Album albumToAdd = null;
+                        for (Album album: albumMap.values()) {
+                            for (Song song: album.songSet) {
+                                if (songTitle.equalsIgnoreCase(song.getName())) {
+                                    songToAdd = song;
+                                }
+                            }
+                        }
+                        System.out.println("Title of the album to add");
+                        String albumTitle = scanner.nextLine();
+                        for (Album album: albumMap.values()) {
+                            if (album.getTitle().equalsIgnoreCase(albumTitle)) {
+                                albumToAdd = album;
+                                addSongToAlbum(songToAdd, albumToAdd);
+                            }
+                        }
                         break;
                     case 3:
+                        System.out.println();
+                        System.out.println("Searching songs by an artist");
+                        System.out.print("Name of the artist: ");
+                        String artistName = scanner.nextLine();
+                        findSongByArtist(artistName,albumMap);
                         break;
                     case 4:
+                        System.out.println();
+                        System.out.println("Listing albums by year: ");
+                        listAlbumsByYear(albumMap);
                         break;
                     case 5:
+                        System.out.println();
+                        System.out.println("Generating playlist from two albums");
+                        System.out.println("Name of the first album: ");
+                        String firstAlbum = scanner.nextLine();
+                        Album firstAlbumFound = albumMap.get(firstAlbum);
+                        System.out.println("Name of the second album: ");
+                        String secondAlbum = scanner.nextLine();
+                        Album secondAlbumFound = albumMap.get(secondAlbum);
+                        generatePlaylist(firstAlbumFound,secondAlbumFound);
                         break;
                     case 6:
+                        System.out.println();
+                        System.out.println("Exiting");
+                        menuIsOn = false;
                         break;
                     default:
                         break;
-
                 }
             }
     }
 
 
-    public static void createAlbum(String title, int year) {
+    public static void createAlbum(String title, int year, Map<String, Album> albumMap) {
         albumMap.put(title, new Album(title,year));
     }
     public static void addSongToAlbum(Song songToAdd, Album albumToAdd) {
         albumToAdd.songSet.add(songToAdd);
     }
-    public static void findSongByArtist(String artistToFind) {
+    public static void findSongByArtist(String artistToFind, Map<String, Album> albumMap) {
         boolean isFound = false;
         HashSet<Song> songsByArtist = new HashSet<>();
         for (Album album: albumMap.values()) {
@@ -99,7 +139,7 @@ public class MusicLibraryManager {
         }
     }
 
-    public static void listAlbumsByYear() {
+    public static void listAlbumsByYear(Map<String, Album> albumMap) {
         ArrayList<Integer> yearsArrayList = new ArrayList<>();
         LinkedHashMap<Album, Integer> albumsByYearLinkedHashMap = new LinkedHashMap<>();
 
