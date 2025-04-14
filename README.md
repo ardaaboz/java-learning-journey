@@ -6,8 +6,8 @@ This repository documents my accelerated learning path to become a Java develope
 ## Learning Path
 - [x] Setting up development environment
 - [x] Java basics and syntax
-- [ ] Object-oriented programming concepts
-- [ ] Core Java libraries and tools
+- [x] Object-oriented programming concepts
+- [x] Core Java libraries and tools
 - [ ] Database connectivity
 - [ ] Web development with Java
 - [ ] Frameworks (Spring)
