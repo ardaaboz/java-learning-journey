@@ -28,4 +28,10 @@ public class Student {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
+
+    // Overriding toString to display student information
+    public String toString() {
+        return "\nID: " + getStudentID() +
+                "Name: " + getStudentName() +
+    }
 }

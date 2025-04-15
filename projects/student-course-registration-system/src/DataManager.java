@@ -17,9 +17,7 @@ public class DataManager {
     public ArrayList<Student> getStudents() {
         return students;
     }
-    public HashMap<String, ArrayList<Course>> getRegistrations() {
-        return registrations;
-    }
+    
     // Methods
 
     // Adding a student
@@ -97,7 +95,7 @@ public class DataManager {
     // Display all courses a student is enrolled in
     public void displayAllCoursesOfStudent(Scanner scanner) {
         // Taking input
-        System.out.println("\nEnrolling student in a course");
+        System.out.println("\nDisplaying all courses a student is enrolled in");
         System.out.print("Student ID: ");
         String inputStudentID = scanner.nextLine();
 
@@ -115,6 +113,49 @@ public class DataManager {
         }
         if (!studentFound) {
             System.out.println("Could not find that student!");
+        }
+    }
+
+    // Display all students enrolled in a course
+    public void displayAllStudentsOfClass(Scanner scanner) {
+        // Taking input
+        System.out.println("\nDisplaying all students of a course");
+        System.out.print("Course Code: ");
+        String inputCourseCode = scanner.nextLine();
+
+        // Search for the course
+        boolean courseFound = false;
+        Course foundCourse = null;
+        for (Course course: courses) {
+            if (course.getCourseCode().equalsIgnoreCase(inputCourseCode)) {
+                courseFound = true;
+                foundCourse = course;
+                break;
+            }
+        }
+        // If course exists
+        if (courseFound) {
+            // Check every student if they're enrolled in that course
+            ArrayList<Student> enrolledStudentsArrayList = new ArrayList<>();
+            for (Student student: students) {
+                for (Course course: student.getRegisteredCourses()) {
+                    if (inputCourseCode.equalsIgnoreCase(course.getCourseCode())) {
+                        // If yes, add them to the new arraylist.
+                        enrolledStudentsArrayList.add(student);
+                    }
+                }
+            }
+            // If found students, display each of them, if not display a message
+            if (!enrolledStudentsArrayList.isEmpty()) {
+                System.out.println("Displaying all students in course " + foundCourse.getCourseCode());
+                for (Student student: enrolledStudentsArrayList) {
+                    System.out.println(student);
+                }
+            } else {
+                System.out.println("Could not find any students enrolled in this class!");
+            }
+        } else {
+            System.out.println("Could not find such a course!");
         }
     }
 }
