@@ -93,4 +93,28 @@ public class DataManager {
             System.out.println("Could not find matching results!");
         }
     }
+
+    // Display all courses a student is enrolled in
+    public void displayAllCoursesOfStudent(Scanner scanner) {
+        // Taking input
+        System.out.println("\nEnrolling student in a course");
+        System.out.print("Student ID: ");
+        String inputStudentID = scanner.nextLine();
+
+        // Search student by ID
+        boolean studentFound = false;
+        for (Student student: students) {
+            if (student.getStudentID().equalsIgnoreCase(inputStudentID)) {
+                studentFound = true;
+                // Display all courses
+                for (Course course: student.getRegisteredCourses()) {
+                    System.out.println(course);
+                }
+                break;
+            }
+        }
+        if (!studentFound) {
+            System.out.println("Could not find that student!");
+        }
+    }
 }

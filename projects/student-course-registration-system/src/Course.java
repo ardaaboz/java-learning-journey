@@ -34,4 +34,11 @@ public class Course {
     public void setCourseInstructor(String courseInstructor) {
         this.courseInstructor = courseInstructor;
     }
+
+    // Overriding toString to display course information
+    public String toString() {
+        return "\nCode: " + getCourseCode() +
+                "Title: " + getCourseTitle() +
+                "Instructor: " + getCourseInstructor();
+    }
 }
