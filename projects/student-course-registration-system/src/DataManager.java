@@ -52,5 +52,45 @@ public class DataManager {
         courses.add(newCourse);
     }
 
+    // Enroll student in a course
+    public void enrollStudentInCourse(Scanner scanner) {
+        // Taking input
+        System.out.println("\nEnrolling student in a course");
+        System.out.print("Student ID: ");
+        String inputStudentID = scanner.nextLine();
+        System.out.print("Course code: ");
+        String inputCourseCode = scanner.nextLine();
 
+        // Searching for student by ID
+        boolean studentFound = false;
+        Student studentToEnroll = null;
+        for (Student student: students) {
+            if (student.getStudentID().equalsIgnoreCase(inputStudentID)) {
+                studentFound = true;
+                studentToEnroll = student;
+                break;
+            }
+        }
+        // If student is found, searching course by ID
+        boolean courseFound = false;
+        Course courseToEnroll = null;
+        if (studentFound) {
+            for (Course course: courses) {
+                if (course.getCourseCode().equalsIgnoreCase(inputCourseCode)) {
+                    courseFound = true;
+                    courseToEnroll = course;
+
+                    // Adding course to student's registered courses if it doesn't exist already
+                    if (!studentToEnroll.getRegisteredCourses().contains(courseToEnroll)) {
+                        studentToEnroll.getRegisteredCourses().add(courseToEnroll);
+                    } else {
+                        System.out.println("Student is already registered to this course!");
+                    }
+                    break;
+                }
+            }
+        } else {
+            System.out.println("Could not find matching results!");
+        }
+    }
 }
