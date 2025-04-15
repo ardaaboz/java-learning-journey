@@ -36,5 +36,21 @@ public class DataManager {
         students.add(newStudent);
     }
 
+    // Adding a course
+    public void addCourse(Scanner scanner) {
+        // Taking input
+        System.out.println("\nCreating a course");
+        System.out.print("Code: ");
+        String inputCourseCode = scanner.nextLine();
+        System.out.print("Title: ");
+        String inputCourseTitle = scanner.nextLine();
+        System.out.print("Instructor: ");
+        String inputCourseInstructor = scanner.nextLine();
+
+        // Creating new course and adding it to the courses array list
+        Course newCourse = new Course(inputCourseCode, inputCourseTitle, inputCourseInstructor);
+        courses.add(newCourse);
+    }
+
 
 }
