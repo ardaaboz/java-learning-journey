@@ -16,6 +16,7 @@ The system includes two core classes:
 - **Student**
     - `ID` (String)
     - `Name` (String)
+    - `registeredCourses` (ArrayList)
 
 - **Course**
     - `Code` (String)
@@ -30,10 +31,6 @@ To manage the data, the following structures are used:
 
 - `ArrayList<Student>` – stores all registered students
 - `ArrayList<Course>` – stores all available courses
-- `HashMap<String, ArrayList<Course>>` – maps student IDs to their registered courses
-    - **Key**: Student ID
-    - **Value**: List of courses the student is enrolled in
-
 ---
 
 ### 3. Console Menu Functionalities
