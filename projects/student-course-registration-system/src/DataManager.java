@@ -20,5 +20,21 @@ public class DataManager {
     public HashMap<String, ArrayList<Course>> getRegistrations() {
         return registrations;
     }
+    // Methods
+
+    // Adding a student
+    public void addStudent(Scanner scanner) {
+        // Taking input
+        System.out.println("\nCreating a student");
+        System.out.print("ID: ");
+        String inputStudentID = scanner.nextLine();
+        System.out.print("Name: ");
+        String inputStudentName = scanner.nextLine();
+
+        // Creating new student and adding it to the students array list
+        Student newStudent = new Student(inputStudentID,inputStudentName);
+        students.add(newStudent);
+    }
+
 
 }
