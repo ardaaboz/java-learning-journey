@@ -1,4 +1,6 @@
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable {
     // Encapsulated fields
     private String courseCode;
     private String courseTitle;
