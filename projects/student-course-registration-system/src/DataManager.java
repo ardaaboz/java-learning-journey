@@ -172,11 +172,60 @@ public class DataManager {
         System.out.print("File name (*.txt): ");
         String inputFileName = scanner.nextLine();
 
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(inputFileName))) {
-            outputStream.writeObject(students);
-            outputStream.writeObject(courses);
-        } catch (IOException e) {
-            System.out.println("Error when saving data: " + e.getMessage());
+        // Check if file exists
+        File file = new File(inputFileName);
+        if (file.exists()) {
+            // Prompt a warning
+            System.out.println("You already have a file with that name. Would you like to overwrite this file? (Y/N)");
+            char yesNoInput = scanner.nextLine().toUpperCase().charAt(0);
+
+            switch (yesNoInput) {
+                case 'Y':
+                    // Save it to file with serialization
+                    try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(inputFileName))) {
+                        outputStream.writeObject(students);
+                        outputStream.writeObject(courses);
+                        System.out.println("Data saved to " + inputFileName);
+                    } catch (IOException e) {
+                        System.out.println("Error when saving data: " + e.getMessage());
+                    }
+                    break;
+                case 'N':
+                    System.out.println("Operation cancelled!");
+                    break;
+                default:
+                    System.out.println("Enter a valid input!");
+                    break;
+            }
+        } else {
+            // Save it to file with serialization
+            try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(inputFileName))) {
+                outputStream.writeObject(students);
+                outputStream.writeObject(courses);
+                System.out.println("Data saved to " + inputFileName);
+            } catch (IOException e) {
+                System.out.println("Error when saving data: " + e.getMessage());
+            }
+        }
+    }
+
+    public void loadData(Scanner scanner) {
+        // Taking input
+        System.out.println("\nLoading data");
+        System.out.print("File name (*.txt): ");
+        String inputFileName = scanner.nextLine();
+
+        // Check if file exists
+        File file = new File(inputFileName);
+        if (file.exists()) {
+            // Load it from file with serialization
+            try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(inputFileName))) {
+                students = (ArrayList<Student>) inputStream.readObject();
+                courses = (ArrayList<Course>) inputStream.readObject();
+                System.out.println("Data loaded from " + inputFileName);
+            } catch (IOException | ClassNotFoundException e) {
+                System.out.println("Error when saving data: " + e.getMessage());
+            }
         }
     }
 }

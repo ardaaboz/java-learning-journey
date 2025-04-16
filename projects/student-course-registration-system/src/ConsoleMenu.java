@@ -39,7 +39,7 @@ public class ConsoleMenu {
                     dataManager.saveData(scanner);
                     break;
                 case 7:
-
+                    dataManager.loadData(scanner);
                     break;
                 case 8:
                     menuIsRunning = false;

@@ -40,7 +40,7 @@ public class Course implements Serializable {
     // Overriding toString to display course information
     public String toString() {
         return "\nCode: " + getCourseCode() +
-                "Title: " + getCourseTitle() +
-                "Instructor: " + getCourseInstructor();
+                "\nTitle: " + getCourseTitle() +
+                "\nInstructor: " + getCourseInstructor();
     }
 }
