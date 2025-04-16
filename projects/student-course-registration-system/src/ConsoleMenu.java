@@ -13,7 +13,9 @@ public class ConsoleMenu {
             System.out.println("3. Enroll student in a course");
             System.out.println("4. View all courses of a student");
             System.out.println("5. View all students in a course");
-            System.out.println("6. Exit");
+            System.out.println("6. Save data");
+            System.out.println("7. Load data");
+            System.out.println("8. Exit");
             int menuInput = scanner.nextInt();
             scanner.nextLine(); // Clear scanner
 
@@ -34,6 +36,12 @@ public class ConsoleMenu {
                     dataManager.displayAllStudentsOfClass(scanner);
                     break;
                 case 6:
+                    dataManager.saveData(scanner);
+                    break;
+                case 7:
+
+                    break;
+                case 8:
                     menuIsRunning = false;
                     System.out.println("\nExiting...");
                     break;

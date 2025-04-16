@@ -1,4 +1,5 @@
 import javax.xml.crypto.Data;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -162,6 +163,20 @@ public class DataManager {
             }
         } else {
             System.out.println("Could not find such a course!");
+        }
+    }
+
+    public void saveData(Scanner scanner) {
+        // Taking input
+        System.out.println("\nSaving data");
+        System.out.print("File name (*.txt): ");
+        String inputFileName = scanner.nextLine();
+
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(inputFileName))) {
+            outputStream.writeObject(students);
+            outputStream.writeObject(courses);
+        } catch (IOException e) {
+            System.out.println("Error when saving data: " + e.getMessage());
         }
     }
 }
