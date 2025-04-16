@@ -53,16 +53,13 @@ The application provides the following menu options:
 - **View All Students in a Course**  
   Displays a list of all students enrolled in a specific course.
 
+- **Save Data**  
+  Save data by using serialization.
+
+- **Load Data**  
+  Load data by using serialization.
+
 - **Exit**  
   Ends the program.
 
 ---
-
-## 💡 Bonus Features
-
-Additional enhancements include:
-
-- Enrollment is restricted if the provided student ID or course code is invalid.
-- A `HashSet` can be used instead of an `ArrayList` to automatically prevent duplicate registrations.
-- File I/O or serialization can be implemented to persist data across sessions.
-
