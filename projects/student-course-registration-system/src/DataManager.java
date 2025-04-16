@@ -32,6 +32,8 @@ public class DataManager {
         // Creating new student and adding it to the students array list
         Student newStudent = new Student(inputStudentID,inputStudentName);
         students.add(newStudent);
+
+        System.out.println("Student created!");
     }
 
     // Adding a course
@@ -48,6 +50,8 @@ public class DataManager {
         // Creating new course and adding it to the courses array list
         Course newCourse = new Course(inputCourseCode, inputCourseTitle, inputCourseInstructor);
         courses.add(newCourse);
+
+        System.out.println("Course created!");
     }
 
     // Enroll student in a course
@@ -81,6 +85,8 @@ public class DataManager {
                     // Adding course to student's registered courses if it doesn't exist already
                     if (!studentToEnroll.getRegisteredCourses().contains(courseToEnroll)) {
                         studentToEnroll.getRegisteredCourses().add(courseToEnroll);
+
+                        System.out.println("Student enrolled in course!");
                     } else {
                         System.out.println("Student is already registered to this course!");
                     }

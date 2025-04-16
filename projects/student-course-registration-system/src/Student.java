@@ -32,6 +32,6 @@ public class Student {
     // Overriding toString to display student information
     public String toString() {
         return "\nID: " + getStudentID() +
-                "Name: " + getStudentName() +
+                "\nName: " + getStudentName();
     }
 }
