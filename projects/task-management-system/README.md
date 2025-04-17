@@ -49,7 +49,7 @@ This is a **console-based Java application** designed to help users manage perso
 ### `Notification` 
 - **Fields**:
     - `message`: Description of the event
-    - `timestamp`: When the event occurred *(or just a descriptive String)*
+    - `time`: When the event occurred
 
 ---
 
