@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Task</title>
+</head>
+<body>
+<h2>Add Task</h2>
+<form action="/add-task" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea><br><br>
+
+    <label for="priority">Priority:</label>
+    <select id="priority" name="priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select><br><br>
+
+    <button type="submit">Add Task</button>
+</form>
+<br>
+<a href="/display-tasks">View tasks</a>
+</body>
+</html>
