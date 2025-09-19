@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Hobby</title>
+</head>
+<body>
+<h1>Add a New Hobby</h1>
+
+<form action="/add-hobby" method="post">
+    <div>
+        <label for="name">Hobby Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div>
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" name="difficulty" required>
+            <option value="">Choose difficulty...</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+    </div>
+
+    <button type="submit">Add Hobby</button>
+</form>
+
+<a href="/hobbies-display">View All Hobbies</a>
+</body>
+</html>

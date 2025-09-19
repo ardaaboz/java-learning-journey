@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Hobbies</title>
+</head>
+<body>
+<h1>All My Hobbies</h1>
+
+<div th:each="hobby : ${hobbies}">
+    <p><strong th:text="${hobby.name}"></strong> -
+        <span th:text="${hobby.difficulty}"></span></p>
+</div>
+
+<a href="/add-hobby-form">Add New Hobby</a>
+<a href="/delete-hobby-form">Delete a Hobby</a>
+</body>
+</html>
