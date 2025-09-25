@@ -1,13 +1,11 @@
-# 📋 Task Management System
+# Task Management System
 
-## 🎯 Scenario
+## Scenario
 This is a **console-based Java application** designed to help users manage personal tasks efficiently. Users can add, categorize, complete, and view tasks based on urgency. The project utilizes a variety of Java collections to solve different parts of the problem, demonstrating practical use of data structures in a real-world scenario.
 
----
+## Features & Functionalities
 
-## ✅ Features & Functionalities
-
-### 🚀 Core Functionalities (via Console Menu)
+### Core Functionalities (via Console Menu)
 1. **Add a Task**
     - Inputs: ID, description, category, priority
     - Validates uniqueness of task ID
@@ -34,9 +32,7 @@ This is a **console-based Java application** designed to help users manage perso
 6. **Exit**
     - Gracefully terminates the program
 
----
-
-## 🧱 Core Classes
+## Core Classes
 
 ### `Task`
 - **Fields**:
@@ -51,9 +47,7 @@ This is a **console-based Java application** designed to help users manage perso
     - `message`: Description of the event
     - `time`: When the event occurred
 
----
-
-## 📚 Data Structures Used
+## Data Structures Used
 
 | Collection | Purpose |
 |-----------|---------|
@@ -64,18 +58,14 @@ This is a **console-based Java application** designed to help users manage perso
 
 Each collection plays a specific role in making the application efficient and user-friendly.
 
----
-
-## 🔧 How It Works
+## How It Works
 
 1. **Startup:** The console menu appears, prompting the user to select an action.
 2. **Adding Tasks:** Ensures no duplicate IDs, assigns tasks to categories and the urgency queue.
 3. **Completion:** Updates the task's status and optionally cleans up the queue.
 4. **Viewing:** Enables retrieval of tasks by category or urgency, and logs every major action.
 
----
-
-## 💡 Key Concepts Demonstrated
+## Key Concepts Demonstrated
 
 - Java Collections (HashSet, HashMap, ArrayList, PriorityQueue, LinkedList)
 - Object-Oriented Design

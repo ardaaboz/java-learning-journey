@@ -1,13 +1,11 @@
-# 🎓 Student Course Registration System
+# Student Course Registration System
 
 A simple Java console-based application designed to manage student course registrations at a small college.
 
-## 🧠 Project Overview
+## Project Overview
 This project simulates a basic course registration system. It allows users to register students, create courses, enroll students in courses, and view enrollment data through a console menu interface.
 
----
-
-## ✅ Features
+## Features
 
 ### 1. Student and Course Classes
 
